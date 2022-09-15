@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ms-security-practica
+spec:
+  hosts:
+  - "the-phe.redbee.cl"
+  gateways:
+  - "the-phe-gateway-cert"
+  http:
+  - match:
+    - uri:
+        prefix: "/api/ms-security-practica/"
+    route:
+    - destination:
+        host: ms-security-practica
