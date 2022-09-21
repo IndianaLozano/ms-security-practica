@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.redbee.mssecuritypractica.application.exception.UnauthorizedExeption;
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,12 @@ public class ErrorHandler {
     public ResponseEntity<ErrorResponse> handle(MissingServletRequestParameterException ex) {
         log.error(ErrorCode.INVALID_PARAMETERS_ERROR.getCode(), ex);
         return buildResponseError(HttpStatus.BAD_REQUEST,ex, ErrorCode.INVALID_PARAMETERS_ERROR);
+    }
+
+    @ExceptionHandler(UnauthorizedExeption.class)
+    public ResponseEntity<ErrorResponse> handle(UnauthorizedExeption ex) {
+        log.error(ErrorCode.INVALID_PARAMETERS_ERROR.getCode(), ex);
+        return buildResponseError(HttpStatus.UNAUTHORIZED,ex, ErrorCode.INVALID_PARAMETERS_ERROR);
     }
 
     private ResponseEntity<ErrorResponse> buildCustomResponseError(HttpStatus httpStatus, ErrorCode errorCode, String customDescription) {

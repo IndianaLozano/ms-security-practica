@@ -10,7 +10,8 @@ public enum ErrorCode {
     INVALID_FILTERS_ERROR(109,"107", "Invalid filters", "MS-SEED-INVALID_FILTERS"),
     DATA_ACCESS_ERROR(111,"111", "Unable to access Account data", "MS-SEED-DATA_ACCESS_ERROR"),
     ESTABLISHMENT_SERVICE_ERROR(112,"112", "Establishment service error", "MS-SEED-ESTABLISHMENT_SERVICE_ERROR"),
-    AMOUNT_INVALID(113,"113", "Establishment service error", "MS-SEED-ESTABLISHMENT_SERVICE_ERROR");
+    AMOUNT_INVALID(113,"113", "Establishment service error", "MS-SEED-ESTABLISHMENT_SERVICE_ERROR"),
+    UNAUTHORIZED(114,"114","Usuario y contraseña incorrecto","WQEQEWQE");
 
     private final int value;
     private final String status;
